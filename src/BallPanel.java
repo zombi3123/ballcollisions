@@ -10,7 +10,7 @@ import java.util.Random;
 
 public class BallPanel extends JPanel implements ActionListener {
     private ArrayList<Ball> balls;
-    private JButton button;
+    private JButton btnAddBalls,btnClearAll;
     private Random randNum=new Random();
     private Timer tm;
     private double xSpeed;int ySpeed;
@@ -20,7 +20,8 @@ public class BallPanel extends JPanel implements ActionListener {
     public BallPanel(int height,int width) {
         this.setSize((int)height,(int)width);
         balls = new ArrayList<>();
-        button=new JButton("Add new balls!");
+        btnAddBalls=new JButton("Add new balls!");
+        btnClearAll=new JButton("Remove All Balls");
         initComponents();
         this.setBackground(Color.cyan);
         tm = new Timer(5,this);
@@ -30,10 +31,11 @@ public class BallPanel extends JPanel implements ActionListener {
 
     private void initComponents(){
 
-        this.add(button);
-        button.setBounds(this.width,this.height/10,50,50);
-        button.setVisible(true);
-        button.addActionListener(new ActionListener() {
+        this.add(btnAddBalls);
+        this.add(btnClearAll);
+        btnAddBalls.setBounds(this.width/2-100,this.height/10,50,50);
+        btnAddBalls.setVisible(true);
+        btnAddBalls.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 for (int i=0;i<2;i++) {
@@ -52,7 +54,17 @@ public class BallPanel extends JPanel implements ActionListener {
                 repaint();
             }
         });
+        btnClearAll.setBounds(this.width/2,this.height/10,50,50);
+        btnClearAll.setVisible(true);
+        btnClearAll.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent d) {
 
+              balls.clear();
+
+                repaint();
+            }
+        });
 
     }
 
