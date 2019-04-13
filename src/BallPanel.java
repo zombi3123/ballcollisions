@@ -29,15 +29,7 @@ public class BallPanel extends JPanel implements ActionListener {
         this.height=height;
     }
 
-    private void initComponents(){
-
-        this.add(btnAddBalls);
-        this.add(btnClearAll);
-        btnAddBalls.setBounds(this.width/2-100,this.height/10,50,50);
-        btnAddBalls.setVisible(true);
-        btnAddBalls.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+       public void actionPerformed(ActionEvent e) {
                 for (int i=0;i<2;i++) {
                     int ypos = randNum.nextInt(getHeight() - 50);
                     int xpos = randNum.nextInt(getWidth() - 50);
@@ -45,7 +37,8 @@ public class BallPanel extends JPanel implements ActionListener {
                     Ball ball = new Ball(xpos, ypos,50, color);
                     //ball.xSpeed=randNum.nextInt(1);
                     //ball.ySpeed=randNum.nextInt(1);
-                    double n = randNum.nextInt(3)+5;
+                    double n = randNum.nextInt(2)+1;
+                    ball.setMass(randNum.nextInt(10));
                     ball.xSpeed=n;
                     ball.ySpeed=n;
                     balls.add(ball);
