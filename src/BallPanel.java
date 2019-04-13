@@ -18,18 +18,25 @@ public class BallPanel extends JPanel implements ActionListener {
     Color color;
 
     public BallPanel(int height,int width) {
-        this.setSize((int)height,(int)width);
+        this.setSize(height,width);
         balls = new ArrayList<>();
         btnAddBalls=new JButton("Add new balls!");
         btnClearAll=new JButton("Remove All Balls");
         initComponents();
         this.setBackground(Color.cyan);
-        tm = new Timer(5,this);
+        tm = new Timer(1,this);
         this.width=width;
         this.height=height;
     }
 
-       public void actionPerformed(ActionEvent e) {
+    private void initComponents(){
+        this.add(btnAddBalls);
+        this.add(btnClearAll);
+        btnAddBalls.setBounds(this.width/2-100,this.height/10,50,50);
+        btnAddBalls.setVisible(true);
+        btnAddBalls.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
                 for (int i=0;i<2;i++) {
                     int ypos = randNum.nextInt(getHeight() - 50);
                     int xpos = randNum.nextInt(getWidth() - 50);
@@ -37,7 +44,7 @@ public class BallPanel extends JPanel implements ActionListener {
                     Ball ball = new Ball(xpos, ypos,50, color);
                     //ball.xSpeed=randNum.nextInt(1);
                     //ball.ySpeed=randNum.nextInt(1);
-                    double n = randNum.nextInt(2)+1;
+                    double n = 1;
                     ball.setMass(randNum.nextInt(10));
                     ball.xSpeed=n;
                     ball.ySpeed=n;
@@ -81,10 +88,8 @@ public class BallPanel extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         for (Ball b:balls){
-            if (b.getX()+b.getWidth()>this.width){b.setxSpeed(-(b.getxSpeed()));}
-            else if (b.getX()<0){b.setxSpeed(-(b.getxSpeed()));}
-            else if (b.getY()<0){b.setySpeed(-(b.getySpeed()));}
-            else if (b.getY()+b.getWidth()>this.height){b.setySpeed(-(b.getySpeed()));}
+            if (b.getX()+b.getWidth()>this.width || b.getX()<0){b.setxSpeed(-(b.getxSpeed()));}
+            else if (b.getY()<0 || b.getY()+b.getWidth()>this.height){b.setySpeed(-(b.getySpeed()));}
             b.xpos+=xSpeed;
             b.ypos+=ySpeed;
             b.setX(b.xpos);
@@ -120,3 +125,4 @@ public class BallPanel extends JPanel implements ActionListener {
 
     }
 }
+
