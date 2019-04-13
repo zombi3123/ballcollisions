@@ -99,16 +99,16 @@ public class BallPanel extends JPanel implements ActionListener {
 
                 if (c!=b){ //We don't want the ball detecting a collsision with itself
                     if(distance(c,b)<c.getWidth()){
-                        double vx1=b.getxSpeed();
+                          /*double vx1=b.getxSpeed();
                         double vx2=c.getxSpeed();
                         double vy1=b.getySpeed();
                         double vy2=c.getySpeed();
                         double m1=b.getMass();
-                        double m2=b.getMass();
-                        double finalVelX1=((vx1*(m1-m2)+2*(m2*vx2))/(m1+m2));
-                        double finalVelX2=((vx2*(m2-m1)+2*(m1*vx1))/(m1+m2));
-                        double finalVelY1=((vy1*(m1-m2)+2*(m2*vy2))/(m1+m2));
-                        double finalVelY2=((vy2*(m2-m1)+2*(m1*vy1))/(m1+m2));
+                        double m2=c.getMass();*/
+                        double finalVelX1=((b.getxSpeed()*(b.getMass()-c.getMass())+2*(c.getMass()*c.getxSpeed()))/(b.getMass()+c.getMass()));
+                        double finalVelX2=((c.getxSpeed()*(c.getMass()-b.getMass())+2*(b.getMass()*b.getxSpeed()))/(b.getMass()+c.getMass()));
+                        double finalVelY1=((b.getySpeed()*(b.getMass()-c.getMass())+2*(c.getMass()*c.getySpeed()))/(b.getMass()+c.getMass()));
+                        double finalVelY2=((c.getySpeed()*(c.getMass()-b.getMass())+2*(b.getMass()*b.getySpeed()))/(b.getMass()+c.getMass()));
                         b.setxSpeed(finalVelX1);
                         c.setxSpeed(finalVelX2);
                         b.setySpeed(finalVelY1);
