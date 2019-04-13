@@ -45,7 +45,7 @@ public class BallPanel extends JPanel implements ActionListener {
                     //ball.xSpeed=randNum.nextInt(1);
                     //ball.ySpeed=randNum.nextInt(1);
                     double n = 1; //Speed
-                    ball.setMass(0.5);
+                    ball.setMass(randNum.nextInt(5)+1); //Some balls have higher mass than others
                     ball.xSpeed=n;
                     ball.ySpeed=n;
                     balls.add(ball);
