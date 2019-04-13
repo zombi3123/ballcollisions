@@ -41,7 +41,7 @@ public class BallPanel extends JPanel implements ActionListener {
                     int ypos = randNum.nextInt(getHeight() - 50);
                     int xpos = randNum.nextInt(getWidth() - 50);
                     color=new  Color(randNum.nextInt(256),randNum.nextInt(256),randNum.nextInt(256));
-                    Ball ball = new Ball(xpos, ypos,50, color); //Change 50 to whatever you want to change the size of the ball
+                    Ball ball = new Ball(xpos, ypos,20, color); //Change 50 to whatever you want to change the size of the ball
                     //ball.xSpeed=randNum.nextInt(1);
                     //ball.ySpeed=randNum.nextInt(1);
                     double n = 1; //Speed
