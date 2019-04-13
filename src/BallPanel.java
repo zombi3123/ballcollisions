@@ -37,14 +37,14 @@ public class BallPanel extends JPanel implements ActionListener {
         btnAddBalls.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                for (int i=0;i<2;i++) {
+                for (int i=0;i<2;i++) { //Make this range higher to porduce more balls per button click
                     int ypos = randNum.nextInt(getHeight() - 50);
                     int xpos = randNum.nextInt(getWidth() - 50);
                     color=new  Color(randNum.nextInt(256),randNum.nextInt(256),randNum.nextInt(256));
                     Ball ball = new Ball(xpos, ypos,50, color);
                     //ball.xSpeed=randNum.nextInt(1);
                     //ball.ySpeed=randNum.nextInt(1);
-                    double n = 1;
+                    double n = 1; //Speed
                     ball.setMass(0.5);
                     ball.xSpeed=n;
                     ball.ySpeed=n;
@@ -74,9 +74,7 @@ public class BallPanel extends JPanel implements ActionListener {
         BasicStroke s=new BasicStroke(1);
         g2d.setColor(Color.CYAN);
         g2d.setStroke(s);
-        int i=0;
         for (Ball b:balls){
-            i+=1;
             b.draw(g2d);
         }
     }
@@ -99,7 +97,7 @@ public class BallPanel extends JPanel implements ActionListener {
 
             for (Ball c:balls){
 
-                if (c!=b){
+                if (c!=b){ //We don't want the ball detecting a collsision with itself
                     if(distance(c,b)<c.getWidth()){
                         double vx1=b.getxSpeed();
                         double vx2=c.getxSpeed();
