@@ -1,4 +1,6 @@
 # ballcollisions
+Program made by Joshua carpenter-Jones
+Hope you enjoy! :)
 Issues:
 Balls fuse together. 
 Balls seem to act strange around the edges.
