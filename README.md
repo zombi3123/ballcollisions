@@ -1,5 +1,5 @@
 # ballcollisions
-Program made by Joshua carpenter-Jones
+Program made by Joshua carpenter-Jones\n
 Hope you enjoy! :)
 Issues:
 Balls fuse together. 
