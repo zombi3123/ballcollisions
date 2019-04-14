@@ -1,7 +1,7 @@
 # ballcollisions
 Program made by Joshua carpenter-Jones
 
-Hope you enjoy! :)
+Hope you enjoy!
 
 Issues:
 
