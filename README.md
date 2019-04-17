@@ -15,7 +15,7 @@ Issues:
 Notes:
 Make sure you don't use the program while chromes running, otherwise it will lag. Thank you!
 
-Update 1.1:
+Update 1.1: (17/04/2019)
 
 -I've enabled mass so that when high mass particles bump into low mass ones, the velocity of the low mass ball is increased. This makes the simulation look a lot better
 
