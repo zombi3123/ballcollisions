@@ -5,7 +5,7 @@ public class Ball {
     int xpos;int ypos;
     int width;
     double xSpeed;
-    double mass=0;
+    double mass;
     double ySpeed;
 
     public Ball(int xpos,int ypos,int width,Color color){
@@ -16,9 +16,7 @@ public class Ball {
     }
 
     public double getMass(){return this.mass;}
-    
-    public void setMass(double mass){this.mass=mass;}
-    
+    public void setMass(int mass){this.mass=mass;}
     public void move(double xSpeed,double ySpeed){
         this.xpos+=xSpeed;
         this.ypos+=ySpeed;
@@ -40,7 +38,7 @@ public class Ball {
     public void setY(int y){this.ypos=ypos;}
 
     public int getWidth(){return this.width;}
-
+    public void setColour(Color newColor){this.color=newColor;}
     public void draw(Graphics g){
         BasicStroke s = new BasicStroke(10);
         g.setColor(color);
