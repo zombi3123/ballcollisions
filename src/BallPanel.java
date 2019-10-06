@@ -17,7 +17,7 @@ public class BallPanel extends JPanel implements ActionListener {
     private int width;
     private int height;
     private double gravity;
-    private boolean nonStaticCollsions;
+    private boolean elasticCollsions=true;
     Color color;
 
     public BallPanel(int height,int width) {
@@ -32,7 +32,7 @@ public class BallPanel extends JPanel implements ActionListener {
 
         initComponents();
         this.setBackground(Color.black);
-        tm = new Timer(5,this);
+        tm = new Timer(1,this);
         this.width=width;
         this.height=height;
     }
@@ -52,17 +52,16 @@ public class BallPanel extends JPanel implements ActionListener {
                     for (int j=0;j<10;j++) {
                     int ypos = randNum.nextInt(getHeight()-50);
                     int xpos = randNum.nextInt(getWidth()-50);
-                    color= new Color(255,255,255);
+                    color= new Color(randNum.nextInt(255),randNum.nextInt(255),randNum.nextInt(255));
                     Color colorPlane=new Color(255,0,0);
-                    Ball ball = new Ball(xpos, ypos,20, color);
+                    Ball ball = new Ball(i*100+50, j*100+50,20, color);
 
                    // Ball ball2 = new Ball(j*10, i*20,10, color);
                     //ball.xSpeed=randNum.nextInt(1);
                     //ball.ySpeed=randNum.nextInt(1);
-                    int speeds[]={3,2,1,0,-1,-2,-3};
-                    int mass[]={10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,10,9,8,7,6,5,4,3,2,1,95,96,97,98,99};
-                    ball.setMass(mass[randNum.nextInt(mass.length)]);
-                    if (ball.getMass()>=95){ball.setColour(colorPlane);}
+                    int speeds[]={1,-1};
+                    ball.setMass(randNum.nextInt(20));
+                    ball.setColour(color);
                     ball.xSpeed=speeds[randNum.nextInt(speeds.length)];
                     ball.ySpeed=speeds[randNum.nextInt(speeds.length)];
                    /* ball2.setMass(0.5);
@@ -105,7 +104,7 @@ public class BallPanel extends JPanel implements ActionListener {
         btnNonElasticCollisions.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent f) {
-                tm.stop();
+                elasticCollsions=false;
             }
         });
     }
@@ -132,27 +131,33 @@ public class BallPanel extends JPanel implements ActionListener {
 
             if (b.getX()+b.getWidth()>this.width){
                 b.setxSpeed(-(b.getxSpeed()));
+                b.setStuckCounter(b.getStuckCounter()+1);
                 //b.setX(b.getWidth());
             }
             if (b.getX()<0){
                     b.setxSpeed(-(b.getxSpeed()));
+                b.setStuckCounter(b.getStuckCounter()+1);
                 //b.setX(this.width-b.getWidth());
             }
-            if (b.getY()-b.getWidth()<0 && b.getySpeed()<0){
+            if (b.getY()<0 &&b.getySpeed()<0){
                     b.setySpeed(-(b.getySpeed()));
-
-                System.out.println("X:"+b.getX()+" Y:"+b.getY());
+                    b.setStuckCounter(b.getStuckCounter()+1);
+                //System.out.println(b.getStuckCounter());
+                //System.out.println("X:"+b.getX()+" Y:"+b.getY());
                 //b.setY(this.height-b.getWidth());
             }
             if (b.getY()+b.getWidth()>this.height){
                // b.setY(b.getWidth());
-                if(gravity>3){
-                    b.setySpeed(-(b.getySpeed()+gravity)/5);
-                }
-                else{ b.setySpeed(-(b.getySpeed()));
-                    b.setxSpeed(b.getxSpeed());}
+                 b.setySpeed(-(b.getySpeed()));
+                    b.setxSpeed(b.getxSpeed());
+                b.setStuckCounter(0);
 
             }
+            if (b.getX()<b.getWidth()&&b.getY()<b.getWidth()){
+                b.setStuckCounter(b.getStuckCounter()+1);
+            }
+
+
 
             //b.xpos+=xSpeed;
            // b.ypos+=ySpeed;
@@ -162,8 +167,19 @@ public class BallPanel extends JPanel implements ActionListener {
             repaint();
 
             for (Ball c:balls ){
+                double finalVelX1=((0.9*c.getMass()*(c.getxSpeed()-b.getxSpeed()))+(b.getMass()*b.getxSpeed())+((c.getMass()*c.getxSpeed()))/(b.getMass()+c.getMass()));
+                double finalVelX2=((0.9*b.getMass()*(b.getxSpeed()-c.getxSpeed()))+(b.getMass()*b.getxSpeed())+((c.getMass()*c.getxSpeed()))/(b.getMass()+c.getMass()));
+                double finalVelY1=((0.9*c.getMass()*(c.getySpeed()-b.getySpeed()))+(b.getMass()*b.getySpeed())+((c.getMass()*c.getySpeed()))/(b.getMass()+c.getMass()));
+                double finalVelY2=((0.9*b.getMass()*(b.getySpeed()-c.getySpeed()))+(b.getMass()*b.getySpeed())+((c.getMass()*c.getySpeed()))/(b.getMass()+c.getMass()));
 
-                if (c!=b && distance(b,c)<b.getWidth()*4){
+                double finalVelX1e=((b.getxSpeed()*(b.getMass()-c.getMass())+2*(c.getMass()*c.getxSpeed()))/(b.getMass()+c.getMass()));
+                double finalVelX2e=((c.getxSpeed()*(c.getMass()-b.getMass())+2*(b.getMass()*b.getxSpeed()))/(b.getMass()+c.getMass()));
+                double finalVelY1e=((b.getySpeed()*(b.getMass()-c.getMass())+2*(c.getMass()*c.getySpeed()))/(b.getMass()+c.getMass()));
+                double finalVelY2e=((c.getySpeed()*(c.getMass()-b.getMass())+2*(b.getMass()*b.getySpeed()))/(b.getMass()+c.getMass()));
+
+
+                if (c!=b && distance(b,c)<b.getWidth()*4 && elasticCollsions){
+
                     if(distance(c,b)<c.getWidth()+1){
                         /*double vx1=b.getxSpeed();
                         double vx2=c.getxSpeed();
@@ -171,10 +187,31 @@ public class BallPanel extends JPanel implements ActionListener {
                         double vy2=c.getySpeed();
                         double m1=b.getMass();
                         double m2=c.getMass();*/
-                        double finalVelX1=((b.getxSpeed()*(b.getMass()-c.getMass())+2*(c.getMass()*c.getxSpeed()))/(b.getMass()+c.getMass()));
-                        double finalVelX2=((c.getxSpeed()*(c.getMass()-b.getMass())+2*(b.getMass()*b.getxSpeed()))/(b.getMass()+c.getMass()));
-                        double finalVelY1=((b.getySpeed()*(b.getMass()-c.getMass())+2*(c.getMass()*c.getySpeed()))/(b.getMass()+c.getMass()));
-                        double finalVelY2=((c.getySpeed()*(c.getMass()-b.getMass())+2*(b.getMass()*b.getySpeed()))/(b.getMass()+c.getMass()));
+
+                        b.setxSpeed(finalVelX1e);
+                        c.setxSpeed(finalVelX2e);
+                        b.setySpeed(finalVelY1e);
+                        c.setySpeed(finalVelY2e);
+                    /*    if (finalVelX1 == finalVelX2 && finalVelY1 == finalVelY2){
+                            b.setxSpeed(-finalVelX2);
+                            b.setX(b.getX()-b.getWidth()/2);
+                        }*/
+
+                        b.move(b.getxSpeed(),b.getySpeed());
+                        c.move(c.getxSpeed(),c.getySpeed());
+                        repaint();
+                    }
+                }
+                else{
+
+                    if(distance(c,b)<c.getWidth() && !elasticCollsions){
+                        /*double vx1=b.getxSpeed();
+                        double vx2=c.getxSpeed();
+                        double vy1=b.getySpeed();
+                        double vy2=c.getySpeed();
+                        double m1=b.getMass();
+                        double m2=c.getMass();
+                        double restitution=0.5*/
                         b.setxSpeed(finalVelX1);
                         c.setxSpeed(finalVelX2);
                         b.setySpeed(finalVelY1);
@@ -188,7 +225,9 @@ public class BallPanel extends JPanel implements ActionListener {
                         c.move(c.getxSpeed(),c.getySpeed());
                         repaint();
                     }
+
                 }
+
             }
         }
         tm.start();
