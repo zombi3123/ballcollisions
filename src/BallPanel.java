@@ -32,7 +32,7 @@ public class BallPanel extends JPanel implements ActionListener {
 
         initComponents();
         this.setBackground(Color.black);
-        tm = new Timer(10,this);
+        tm = new Timer(7,this);
         this.width=width;
         this.height=height;
     }
